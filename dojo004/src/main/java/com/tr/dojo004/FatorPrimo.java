@@ -33,21 +33,21 @@ public class FatorPrimo {
 		return resultado;
 	}
 	
-	public int calcularProximoPrimo(int n){
-		boolean isPrimo = true;
+	public int calcularProximoPrimo(int n) {
 		
-		for (int i = (n + 1); ; i++) {
+		for (int i = n + 1; ; i++) {
+			
+			boolean isPrimo = true;
 			int raiz = (int) Math.sqrt(i);
-			for (int j = 2; j <=  raiz; j++) {
-				if (i % j == 0) {
+			
+			for (int j = 2; j <= raiz && isPrimo; j++) {
+				if (i % j == 0) { 
 					isPrimo = false;
-					break;
-				}					
+				}
 			}
-			if (isPrimo){
+			
+			if (isPrimo)
 				return i;
-			}
-			isPrimo = true;
 		}
 	}
 }

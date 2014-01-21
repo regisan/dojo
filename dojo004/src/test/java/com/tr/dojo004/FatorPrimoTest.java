@@ -73,5 +73,25 @@ public class FatorPrimoTest {
 		fatores.add(23);
 		assertEquals(fatores, fp.calcularFatores(276));
 	}
+	
+	@Test
+	public void testCalcularFatores1000() {
+		List<Integer> fatores = new ArrayList<>();
+		fatores.add(2);
+		fatores.add(2);
+		fatores.add(2);
+		fatores.add(5);
+		fatores.add(5);
+		fatores.add(5);
+		assertEquals(fatores, fp.calcularFatores(1000));
+	}
+	
+	@Test
+	public void testCalcularFatores1234567() {
+		List<Integer> fatores = new ArrayList<>();
+		fatores.add(127);
+		fatores.add(9721);
+		assertEquals(fatores, fp.calcularFatores(1234567));
+	}
 
 }

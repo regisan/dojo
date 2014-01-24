@@ -2,11 +2,6 @@ package com.tr.dojo005;
 
 import java.util.List;
 
-/**
- * Problema: Placar de boliche
- * @see http://dojopi.wordpress.com/2009/09/01/problema-para-o-dojo-teresina-004-boliche/
- *
- */
 public class Boliche {
 
 	/**

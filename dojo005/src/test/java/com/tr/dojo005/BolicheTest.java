@@ -23,7 +23,7 @@ public class BolicheTest {
 		Jogada j = new Jogada(3, 2);
 		listaJogadas.add(j);
 		
-		assertEquals(5, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(5, boliche.calcularResultadoPlacar(listaJogadas));
 	}
 
 	@Test
@@ -56,7 +56,7 @@ public class BolicheTest {
 		Jogada j = new Jogada(9, 1);
 		listaJogadas.add(j);
 		
-		assertEquals(10, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(10, boliche.calcularResultadoPlacar(listaJogadas));
 	}
 
 	@Test
@@ -67,7 +67,7 @@ public class BolicheTest {
 		listaJogadas.add(j1);
 		listaJogadas.add(j2);
 		
-		assertEquals(22, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(22, boliche.calcularResultadoPlacar(listaJogadas));
 	}
 
 	@Test
@@ -80,7 +80,7 @@ public class BolicheTest {
 		listaJogadas.add(j2);
 		listaJogadas.add(j3);
 		
-		assertEquals(37, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(37, boliche.calcularResultadoPlacar(listaJogadas));
 	}
 
 	@Test
@@ -93,7 +93,7 @@ public class BolicheTest {
 		listaJogadas.add(j2);
 		listaJogadas.add(j3);
 		
-		assertEquals(32, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(32, boliche.calcularResultadoPlacar(listaJogadas));
 	}
 	
 	@Test
@@ -104,7 +104,7 @@ public class BolicheTest {
 		listaJogadas.add(j1);
 		listaJogadas.add(j2);
 		
-		assertEquals(24, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(24, boliche.calcularResultadoPlacar(listaJogadas));
 //		10+5+2+5+2
 	}
 	
@@ -118,7 +118,7 @@ public class BolicheTest {
 		listaJogadas.add(j2);
 		listaJogadas.add(j3);
 		
-		assertEquals(49, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(49, boliche.calcularResultadoPlacar(listaJogadas));
 //		10+10+3 = 23 + 10 + 3 + 5 = 41 + 8 = 49 
 	}
 	
@@ -132,7 +132,7 @@ public class BolicheTest {
 		listaJogadas.add(j2);
 		listaJogadas.add(j3);
 		
-		assertEquals(60, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(60, boliche.calcularResultadoPlacar(listaJogadas));
 //		10+10+10 = 30 + 10 + 10 = 50 + 10 = 60 
 	}
 	
@@ -146,7 +146,7 @@ public class BolicheTest {
 		listaJogadas.add(j2);
 		listaJogadas.add(j3);
 		
-		assertEquals(36, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(36, boliche.calcularResultadoPlacar(listaJogadas));
 //		10+3+5 = 18 + 3 + 5 = 26 + 10 = 36 
 	}
 
@@ -162,7 +162,7 @@ public class BolicheTest {
 		listaJogadas.add(j3);
 		listaJogadas.add(j4);
 		
-		assertEquals(49, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(49, boliche.calcularResultadoPlacar(listaJogadas));
 //		10+3+5 = 18 + 3 + 5 = 26 + 10 = 36 + 5 = 41 + 5 + 3 = 49
 	}
 
@@ -190,7 +190,7 @@ public class BolicheTest {
 		listaJogadas.add(j9);
 		listaJogadas.add(j10);
 		
-		assertEquals(10, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(10, boliche.calcularResultadoPlacar(listaJogadas));
 	}
 
 	@Test
@@ -215,7 +215,7 @@ public class BolicheTest {
 		listaJogadas.add(j8);
 		listaJogadas.add(j9);
 		
-		assertEquals(240, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(240, boliche.calcularResultadoPlacar(listaJogadas));
 	}
 
 	@Test
@@ -245,7 +245,7 @@ public class BolicheTest {
 		listaJogadas.add(j10);
 		listaJogadas.add(j11);
 		
-		assertEquals(272, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(272, boliche.calcularResultadoPlacar(listaJogadas));
 	}
 	
 	@Test
@@ -277,7 +277,7 @@ public class BolicheTest {
 		listaJogadas.add(j11);
 //		listaJogadas.add(j12);
 		
-		assertEquals(300, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(300, boliche.calcularResultadoPlacar(listaJogadas));
 	}
 	
 	@Test
@@ -307,7 +307,7 @@ public class BolicheTest {
 		listaJogadas.add(j10);
 		listaJogadas.add(j11);
 		
-		assertEquals(256, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(256, boliche.calcularResultadoPlacar(listaJogadas));
 	}
 	
 	@Test
@@ -337,7 +337,7 @@ public class BolicheTest {
 		listaJogadas.add(j10);
 		listaJogadas.add(j11);
 		
-		assertEquals(217, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(217, boliche.calcularResultadoPlacar(listaJogadas));
 	}
 	
 	@Test
@@ -365,7 +365,7 @@ public class BolicheTest {
 		listaJogadas.add(j9);
 		listaJogadas.add(j10);
 		
-		assertEquals(188, boliche.resultadoPlacar(listaJogadas));
+		assertEquals(188, boliche.calcularResultadoPlacar(listaJogadas));
 	}
 }
 

@@ -13,7 +13,7 @@ public class Boliche {
 	 * @param jogadas
 	 * @return
 	 */
-	public int resultadoPlacar(List<Jogada> jogadas) {
+	public int calcularResultadoPlacar(List<Jogada> jogadas) {
 		int soma = 0;
 
 		boolean aconteceuSpare = false;

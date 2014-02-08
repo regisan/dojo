@@ -86,15 +86,34 @@ public class ContaLetrasTest {
 	}
 	
 	@Test
-	public void testContadorDezenas(){
-		assertEquals(1038, contaLetras.contarDezenas(99,"").length());
-	}
-	
-	
-	@Test
 	public void testCentoEDez(){
 		assertEquals(1141, contaLetras.contar(110));
 	}
+	
+	@Test
+    public void test111(){
+        assertEquals(1151, contaLetras.contar(111));
+    }
+	
+	@Test
+    public void test112(){
+        assertEquals(1161, contaLetras.contar(112));
+    }
+	
+	@Test
+    public void test119(){
+        assertEquals(1255, contaLetras.contar(119));
+    }
+	
+	@Test
+    public void test120(){
+        assertEquals(1266, contaLetras.contar(120));
+    }
+	
+	@Test
+    public void test121(){
+        assertEquals(1280, contaLetras.contar(121));
+    }
 
 	@Test
 	public void testDuzentosEDez(){
@@ -120,4 +139,54 @@ public class ContaLetrasTest {
 	public void test300(){
 		assertEquals(4619, contaLetras.contar(300));
 	}
+	
+	@Test
+	public void testDecompor1() {
+	    assertEquals(1, contaLetras.decompor(1));
+	}
+	
+	@Test
+    public void testDecompor10() {
+        assertEquals(10, contaLetras.decompor(10));
+    }
+	
+	@Test
+    public void testDecompor19() {
+        assertEquals(19, contaLetras.decompor(19));
+    }
+	
+	@Test
+    public void testDecompor20() {
+        assertEquals(20, contaLetras.decompor(20));
+    }
+	
+	@Test
+    public void testDecompor25() {
+        assertEquals(20, contaLetras.decompor(25));
+    }
+	
+	@Test
+    public void testDecompor100() {
+        assertEquals(100, contaLetras.decompor(100));
+    }
+	
+	@Test
+    public void testDecompor101() {
+        assertEquals(100, contaLetras.decompor(101));
+    }
+	
+	@Test
+    public void testDecompor115() {
+        assertEquals(100, contaLetras.decompor(115));
+    }
+	
+	@Test
+    public void testDecompor999() {
+        assertEquals(900, contaLetras.decompor(999));
+    }
+	
+	@Test
+    public void testDecompor1000() {
+        assertEquals(1000, contaLetras.decompor(1000));
+    }
 }

@@ -37,7 +37,7 @@ public class GuitarTest {
     }
     
     @Inject
-    Inventory guitarRegistration;
+    Inventory inventory;
 
     @Inject
     Logger log;
@@ -49,7 +49,7 @@ public class GuitarTest {
         newGuitar.setPrice(3000.0);
         
         GuitarSpec spec = new GuitarSpec();
-        spec.setModel("LesPaul");
+        spec.setModel("Les Paul");
         spec.setNumStrings(6);
         spec.setBuilder(Builder.FENDER);
         spec.setType(Type.ELETRICA);
@@ -58,7 +58,7 @@ public class GuitarTest {
         
         newGuitar.setSpec(spec);
         
-        guitarRegistration.register(newGuitar);
+        inventory.register(newGuitar);
         
         assertNotNull(newGuitar.getId());
         assertNotNull(spec.getId());
@@ -69,14 +69,14 @@ public class GuitarTest {
     public void testInventory() throws Exception {
         
         GuitarSpec spec = new GuitarSpec();
-        spec.setModel("LesPaul");
-        spec.setNumStrings(4);
+        spec.setModel("Les Paul");
+        spec.setNumStrings(6);
         spec.setBuilder(Builder.WARMICK);
         spec.setType(Type.ACUSTICA);
         spec.setTopWood(Wood.PEROBA);
         spec.setBackWood(Wood.CEDRO);
         
-        guitarRegistration.addGuitar("002", 4005.65, spec);
+        inventory.addGuitar("002", 4005.65, spec);
         
         assertNotNull(spec.getId());
         log.info("Spec was persisted with id " + spec.getId());
@@ -86,32 +86,54 @@ public class GuitarTest {
     public void testGetGuitar() throws Exception {
         
         GuitarSpec spec = new GuitarSpec();
-        spec.setModel("Cherry");
-        spec.setNumStrings(4);
+        spec.setModel("Les Paul");
+        spec.setNumStrings(6);
         spec.setBuilder(Builder.GIBSON);
         spec.setType(Type.ACUSTICA);
         spec.setTopWood(Wood.PEROBA);
         spec.setBackWood(Wood.CEDRO);
         
-        guitarRegistration.addGuitar("003", 4005.65, spec);
+        inventory.addGuitar("003", 4005.65, spec);
 
-        assertNotNull(guitarRegistration.getGuitar("003"));         
+        assertNotNull(inventory.getGuitar("003"));         
     }    
     
     @Test
     public void testSearchGuitar() throws Exception {
         
         GuitarSpec spec = new GuitarSpec();
-        spec.setModel("Cherry");
-        spec.setNumStrings(4);
+        spec.setModel("Rosewood");
+        spec.setNumStrings(6);
         spec.setBuilder(Builder.GIBSON);
         spec.setType(Type.ACUSTICA);
         spec.setTopWood(Wood.PEROBA);
         spec.setBackWood(Wood.CEDRO);
         
-        guitarRegistration.addGuitar("004", 4205.65, spec);
+        inventory.addGuitar("004", 4205.65, spec);
 
-        assertTrue(guitarRegistration.searchGuitar(spec).size() == 1);
+        assertTrue(inventory.searchGuitar(spec).size() == 1);
+    }
+    
+    @Test
+    public void testSearchGuitar2() throws Exception {
+        
+        GuitarSpec spec = new GuitarSpec();
+        spec.setModel("Les Paul");
+        spec.setNumStrings(6);
+        spec.setType(Type.ELETRICA);
+        
+        inventory.addGuitar("005", 6865.65, spec);
+
+        assertTrue(inventory.searchGuitar(spec).size() > 1);
+    }
+    
+    @Test
+    public void testSearchNoGuitar() throws Exception {
+        
+        GuitarSpec spec = new GuitarSpec();
+        spec.setModel("Stratocaster");
+        
+        assertTrue(inventory.searchGuitar(spec).size() == 0);
     }
     
 }

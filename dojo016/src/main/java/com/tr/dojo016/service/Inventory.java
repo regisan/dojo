@@ -84,10 +84,24 @@ public class Inventory {
         if (spec.getBuilder() != null)
             predicates.add(cb.equal(join.get("builder"), spec.getBuilder()));
         
+        if (spec.getType() != null)
+            predicates.add(cb.equal(join.get("type"), spec.getType()));
+        
+        if (spec.getBackWood() != null)
+            predicates.add(cb.equal(join.get("backWood"), spec.getBackWood()));
+        
+        if (spec.getTopWood() != null)
+            predicates.add(cb.equal(join.get("topWood"), spec.getTopWood()));
+        
         
         criteria.select(guitar).where(predicates.toArray(new Predicate[] {}));
         
         return em.createQuery(criteria).getResultList();
         
+    }
+    
+    public List<Guitar> findAll() {
+        Query q = em.createQuery("select g from Guitar g");
+        return q.getResultList();
     }
 }

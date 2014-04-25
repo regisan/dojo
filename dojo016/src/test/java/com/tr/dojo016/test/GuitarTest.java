@@ -124,7 +124,7 @@ public class GuitarTest {
         
         inventory.addGuitar("005", 6865.65, spec);
 
-        assertTrue(inventory.searchGuitar(spec).size() > 1);
+        assertTrue(inventory.searchGuitar(spec).size() >= 1);
     }
     
     @Test
@@ -134,6 +134,30 @@ public class GuitarTest {
         spec.setModel("Stratocaster");
         
         assertTrue(inventory.searchGuitar(spec).size() == 0);
+    }
+    
+    @Test
+    public void testSearchGuitarGibson() throws Exception {
+        
+        GuitarSpec spec = new GuitarSpec();
+        spec.setBuilder(Builder.GIBSON);
+        
+        assertTrue(inventory.searchGuitar(spec).size() > 0);
+    }
+    
+    @Test
+    public void testSearchGuitarWood() throws Exception {
+
+        GuitarSpec spec = new GuitarSpec();
+        spec.setModel("SG");
+        spec.setBuilder(Builder.GIBSON);
+        spec.setBackWood(Wood.CEDRO);
+        spec.setTopWood(Wood.CEDRO);
+        spec.setNumStrings(6);
+        
+        inventory.addGuitar("006", 3000.0, spec);
+        
+        assertTrue(inventory.searchGuitar(spec).size() > 0);
     }
     
 }

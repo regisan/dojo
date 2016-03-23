@@ -5,76 +5,78 @@ import java.util.Map;
 
 public class Romanos {
 
-    Map<Integer, String> mapa = new HashMap<>();
+	Map<Integer, String> mapa = new HashMap<>();
 
-    public Romanos() {
+	public Romanos() {
 
-        mapa.put(1, "I");
-        mapa.put(5, "V");
-        mapa.put(10, "X");
-        mapa.put(50, "L");
-        mapa.put(100, "C");
-        mapa.put(500, "D");
-        mapa.put(1000, "M");
-    }
-    
-    public String convertMod(int valor, int mod) {
-        String caraca = "";
-        int div = 0;
-        String valorRomano = "";
-        if(mod <= 3) {
-            div = mod;
-            caraca = "I";
-        } else if(mod > 4 && mod <= 10) {
-            div = mod - 5;
-            valorRomano = valorRomano + "V";
-            caraca = "I";
-        }
-        return caraca;
-    }
+		mapa.put(0, "");
+		mapa.put(1, "I");
+		mapa.put(4, "IV");
+		mapa.put(5, "V");
+		mapa.put(9, "IX");
+		mapa.put(10, "X");
+		mapa.put(40, "XL");
+		mapa.put(50, "L");
+		mapa.put(90, "XC");
+		mapa.put(100, "C");
+		mapa.put(400, "CD");
+		mapa.put(500, "D");
+		mapa.put(900, "CM");
+		mapa.put(1000, "M");
+	}
 
-    public String convert(int valor) {
-        String valorRomano =  mapa.get(valor);
+	public String convert(int valor) {
+		String valorRomano = "";
+		String valorString = String.valueOf(valor);
 
-        if(valorRomano == null)
-        {
-            valorRomano = "";
-            int div = 0;
-            int mod = 0;
-            String caraca = "";
-            for(int x = 0; x < valor; x++){
+		for (int i = 0; i < valorString.length(); i++) {
+			int valorUnidade = Integer.valueOf(valorString.substring(i, i + 1));
+			for (int j = i + 1; j < valorString.length(); j++)
+				valorUnidade = valorUnidade * 10;
+			System.out.println(valor + " = " + valorUnidade);
+			valorRomano = valorRomano + convertPorUnidade(valorUnidade);
+		}
 
-                if(valor <= 3)
-                {
-                    div = valor;
-                    caraca = "I";
-                } else if(valor > 4 && valor <= 10)
-                {
-                    div = valor - 5;
-                    valorRomano = valorRomano + "V";
-                    caraca = "I";
-                }
-                else if(valor <= 30) {
-                    div = valor / 10;
-                    //x = valor - (div*10);
-                    mod = valor % 10;
-                    caraca = "X";
-                }
-                else {
-                    div = valor / 100;
-                    caraca = "C";
-                }
+		return valorRomano;
+	}
 
-                for (int i=1; i <= div ;i++) {
-                    valorRomano = valorRomano + caraca;
-                    if (mod != 0) {
-                        valorRomano = valorRomano + convertMod(valor,mod);
-                    }
-                }
+	private String convertPorUnidade(int valor) {
+		String valorRomano = mapa.get(valor);
 
-            }
-        }
-        return valorRomano;
-    }
+		if (valorRomano == null) {
+			valorRomano = "";
+			int div = 0;
+			String caraca = "";
+
+			if (valor <= 3) {
+				div = valor;
+				caraca = "I";
+			} else if (valor > 4 && valor <= 10) {
+				div = valor - 5;
+				valorRomano = valorRomano + "V";
+				caraca = "I";
+			} else if (valor <= 30) {
+				div = valor / 10;
+				caraca = "X";
+			} else if (valor > 40 && valor <= 100) {
+				div = (valor - 50) / 10;
+				valorRomano = valorRomano + "L";
+				caraca = "X";
+			} else if (valor <= 300) {
+				div = valor / 100;
+				caraca = "C";
+			} else if (valor > 400 && valor <= 1000) {
+				div = (valor - 500) / 100;
+				valorRomano = valorRomano + "D";
+				caraca = "C";
+			}
+
+			for (int i = 1; i <= div; i++) {
+				valorRomano = valorRomano + caraca;
+			}
+
+		}
+		return valorRomano;
+	}
 
 }

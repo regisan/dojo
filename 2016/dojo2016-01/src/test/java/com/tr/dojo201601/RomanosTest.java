@@ -104,9 +104,99 @@ public class RomanosTest {
     }
     
     @Test
+    public void convert60() {
+        Romanos r = new Romanos();
+        assertEquals("LX", r.convert(60));
+    }
+    
+    @Test
+    public void convert70() {
+        Romanos r = new Romanos();
+        assertEquals("LXX", r.convert(70));
+    }
+    
+    @Test
+    public void convert80() {
+        Romanos r = new Romanos();
+        assertEquals("LXXX", r.convert(80));
+    }
+    
+    @Test
+    public void convert600() {
+        Romanos r = new Romanos();
+        assertEquals("DC", r.convert(600));
+    }
+    
+    @Test
+    public void convert700() {
+        Romanos r = new Romanos();
+        assertEquals("DCC", r.convert(700));
+    }
+    
+    @Test
+    public void convert800() {
+        Romanos r = new Romanos();
+        assertEquals("DCCC", r.convert(800));
+    }
+    
+    @Test
     public void convert25() {
         Romanos r = new Romanos();
         assertEquals("XXV", r.convert(25));
+    }
+    
+    @Test
+    public void convert250() {
+        Romanos r = new Romanos();
+        assertEquals("CCL", r.convert(250));
+    }
+    
+    @Test
+    public void convert255() {
+        Romanos r = new Romanos();
+        assertEquals("CCLV", r.convert(255));
+    }
+    
+    @Test
+    public void convert258() {
+        Romanos r = new Romanos();
+        assertEquals("CCLVIII", r.convert(258));
+    }
+    
+    @Test
+    public void convert838() {
+        Romanos r = new Romanos();
+        assertEquals("DCCCXXXVIII", r.convert(838));
+    }
+    
+    @Test
+    public void convert4() {
+        Romanos r = new Romanos();
+        assertEquals("IV", r.convert(4));
+    }
+    
+    @Test
+    public void convert9() {
+        Romanos r = new Romanos();
+        assertEquals("IX", r.convert(9));
+    }
+    
+    @Test
+    public void convert99() {
+        Romanos r = new Romanos();
+        assertEquals("XCIX", r.convert(99));
+    }
+    
+    @Test
+    public void convert999() {
+        Romanos r = new Romanos();
+        assertEquals("CMXCIX", r.convert(999));
+    }
+    
+    @Test
+    public void convert444() {
+        Romanos r = new Romanos();
+        assertEquals("CDXLIV", r.convert(444));
     }
     
 }

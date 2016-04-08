@@ -1,84 +1,82 @@
 package com.tr.dojo201603;
 
 public class Matriz {
+    
+    public enum StateEnum {
+        UP, RIGHT, DOWN, LEFT;
+    }
 
     public int[][] espiral(int lin, int col) {
 
         int[][] result = new int[lin][col];
+        int element = 1;
+        int n = lin * col;
 
-        int elemento = 1;
+        int rowStart = 0;
+        int colStart = 0;
+        int currentRow = 0;
+        int currentCol = 0;
         
-        int total = lin * col;
-        int i = 0;
-        int j = 0;
-        //int direcao = 1;
-        //int posl = 0;
+        StateEnum state = StateEnum.LEFT;
         
-        while (elemento <= total) {
-            for (;j < col; j++) {
-                if (result[i][j] == 0)
-                    result[i][j] = elemento++;
-            }
-            j--;
-            i++;
+        while (element <= n) {
             
-            for (;i < lin; i++) {
-                if (result[i][j] == 0)
-                    result[i][j] = elemento++;
+            switch(state) {
+                case LEFT: {
+                    for (int colPos = colStart; colPos < col && result[currentRow][colPos] == 0; colPos++) {
+                        result[currentRow][colPos] = element++;
+                        currentCol = colPos;
+                    }
+                    currentRow++;
+                    rowStart++;
+                    colStart = currentCol;
+                    state = StateEnum.DOWN;
+                    
+                    break;
+                }
+                case DOWN: {
+                    for (int rowPos = rowStart; rowPos < lin && result[rowPos][currentCol] == 0; rowPos++) {
+                        result[rowPos][currentCol] = element++;
+                        currentRow = rowPos;
+                    }
+                    currentCol--;
+                    colStart--;
+                    rowStart = currentRow;
+                    state = StateEnum.RIGHT;
+                    
+                    break;
+                }
+                case RIGHT: {
+                    for (int colPos = colStart; colPos >= 0 && result[currentRow][colPos] == 0; colPos--) {
+                        result[currentRow][colPos] = element++;
+                        currentCol = colPos;
+                    }
+                    currentRow--;
+                    rowStart--;
+                    colStart = currentCol;
+                    state = StateEnum.UP;
+                    break;
+                }
+                case UP: {
+                    for (int rowPos = rowStart; rowPos >= 0 && result[rowPos][currentCol] == 0; rowPos--) {
+                        result[rowPos][currentCol] = element++;
+                        currentRow = rowPos;
+                    }
+                    currentCol++;
+                    colStart++;
+                    rowStart = currentRow;
+                    state = StateEnum.LEFT;
+    
+                    break;
+                }
+                
             }
-            i--;
-            
-            for (;j >= 0; j--) {
-                if (result[i][j] == 0)
-                    result[i][j] = elemento++;
-            }
-            j++;
-            
-            for (;i >= 0; i--) {
-                if (result[i][j] == 0)
-                    result[i][j] = elemento++;
-            }
-            i++;
         }
         
-//        for (int elemento = 1; elemento <= total; elemento++) {
-//           
-//            int limite = col-1;
-//            for (int i = 0; i < limite; i++) {
-//                result[posl][i] = elemento++;
-//            }
-//            posl ++;
-//
-//            for (int i = linhaAtual; i < lin; i++) {
-//                result[i][col] = elemento++;
-//            }
-//            col--;
-//            
-//            for (int i = col-1; i >= 0; i--) {
-//                result[lin-1][i] = elemento++;
-//            }
-//            
-//        }
-
-//        for (int i = 0; i < lin; i++) {
-//
-//            if (i % 2 == 0) {
-//                for (int j = 0; j < col; j++) {
-//                    result[i][j] = elemento++;
-//                }
-//            } else {
-//                for (int j = col - 1; j >= 0; j--) {
-//                    result[i][j] = elemento++;
-//                }
-//            }
-//        }
-
-        // result[0][0] = 1;
-        // result[0][1] = 2;
-        // result[1][0] = 4;
-        // result[1][1] = 3;
-
+        
         return result;
     }
 
 }
+
+

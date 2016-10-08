@@ -2,10 +2,6 @@ package com.tr.dojo;
 
 import java.util.stream.IntStream;
 
-/**
- * Hello world!
- *
- */
 public class ProdutoEscalar {
 
     public int calcular(int[] a, int[] b) {

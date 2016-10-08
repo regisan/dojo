@@ -55,6 +55,15 @@ public class ProdutoEscalarTest
 
     }
     
+    @Test
+    public void calcularVetorTamanhoZero() {
+        int[] a = {};
+        int[] b = {};
+        
+        assertEquals(0, pe.calcular(a, b));
+
+    }
+    
     @Test(expected=VetoresTamanhosDiferentesException.class)
     public void calcularVetorTamanhosDiferentes() {
         int[] a = {1, 2, 3, 4, 0};
